@@ -4,8 +4,8 @@ import "./form.css";
 
 export const Yesno = props => (
 
-<div class="btn-group">
-  <button type="button" class="btn btn-warning dropdown-toggle yesnobtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div className="btn-group">
+  <button type="button" className="btn btn-warning dropdown-toggle yesnobtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Yes/No
   </button>
   <div className="dropdown-menu">

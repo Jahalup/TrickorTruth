@@ -7,7 +7,7 @@ export const Address = props => (
     <label htmlFor="inputAddress2">Address</label>
     <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
   </div>
-  <div className="form-row">
+  {/* <div className="form-row">
     <div className="form-group col-md-6">
       <label for="inputCity">City</label>
       <input type="text" className="form-control" id="inputCity"/>
@@ -23,7 +23,7 @@ export const Address = props => (
       <label htmlFor="inputZip">Zip</label>
       <input type="text" className="form-control" id="inputZip" />
     </div>
-  </div>
+  </div> */}
   </div>
 
 )
