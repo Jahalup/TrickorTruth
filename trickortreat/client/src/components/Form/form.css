@@ -7,6 +7,15 @@
     margin-bottom: 21px;
 }
 
-.yesnobtn {
-    margin: 50px;
+
+
+.ddivinline {
+    display: inline-block;
+}
+
+#inputState2 {
+    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-top: 5px;
+    background-color: rgba(247, 190, 84, 0.705);
 }

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./main.css";
-// import API from "../../utils/API";
+import API from "../../utils/API";
 // import { Input, FormBtn } from "../../components/Form";
 
-import { Input, Address, Yesno, City, Statechoice, Zipcode, Regbtn } from "../../components/Form";
+import { Input, Yesno, City, Statechoice, Zipcode, Regbtn } from "../../components/Form";
 import { Container, Col, Row} from "../../components/Grid";
 import { Nav } from "../../components/Navbar";
-import { Image } from "../../components/Image";
+import { Image, ImageS } from "../../components/Image";
 import { Link } from "react-router-dom";
 import { Card } from "../../components/Card";
 
@@ -45,6 +45,49 @@ handleInputChange = event => {
     })
 };
 
+handleFormSubmit = event => {
+    event.preventDefault();
+    let firstname = this.state.firstname;
+    let lastname = this.state.lastname;
+    let email = this.state.email;
+    let password = this.state.password;
+    let address = this.state.address;
+    let city = this.state.city;
+    let statechoice = this.state.statechoice;
+    let zipcode = this.state.zipcode;
+    let treats = this.state.treats;
+    let peanutfree = this.state.peanutfree;
+    let healthy = this.state.healthy;
+    let treattype = this.state.treattype;
+    let codeword = this.state.codeword;
+   
+
+    // let { topic, startyear, endyear } = this.state;
+    // let userdata = { firstname, lastname, email, password, address, city }
+   let userdata = {
+    firstname: firstname,
+    lastname: lastname,
+    email: email,
+    password: password,
+    address:address,
+    city: city,
+    statechoice: statechoice,
+    zipcode: zipcode,
+    treats: treats,
+    peanutfree: peanutfree,
+    healthy: healthy,
+    treattype: treattype,
+    codeword: codeword
+    
+   }
+    console.log(userdata);
+    console.log(this.state);
+    API.saveUserData(userdata).then(results => {
+        console.log(results);
+    })
+    .catch(err => console.log(err));    
+}
+    // this.getnewarts(query)
 
 
 
@@ -59,10 +102,12 @@ handleInputChange = event => {
           <Container  fluid>
            <Nav />
            <Row>
-               <Col size="md-2" />
+               <Col size="md-2">
+               <ImageS />
+               </Col>
             <Col size="md-8">  
             <Card>
-                <form>
+                <form ref="form" onSubmit={this.handlesubmit }>
                 First Name:<Input 
                  value={this.state.firstname}
                  type="text"
@@ -87,11 +132,13 @@ handleInputChange = event => {
                 onChange={this.handleInputChange}
                 name="password" />
                 
-               <Address 
+               Address:  <Input 
                value={this.state.address}
                type="text"
                onChange={this.handleInputChange}
                name="address" />
+
+
                <div className="form-row">
                <City 
                value={this.state.city}
@@ -111,27 +158,45 @@ handleInputChange = event => {
                name="zipcode" />
                
                 </div>
-               <div>
-               Will you be giving out treats?  <Yesno 
+                <div>
+               
+             
+               <Yesno 
+               label="Will you be giving out treats?"
                value={this.state.treats}
                type="text"
                onChange={this.handleInputChange}
-               name="treats" />  
+               name="treats" /> 
+              
                </div>
+           
+               
                <div>
-               Will you have a peanut-free option? <Yesno 
+               
+              
+              
+              
+                <Yesno 
+                label="Will you have a peanut-free option?"
                value={this.state.peanutfree}
                type="text"
                onChange={this.handleInputChange}
                name="peanutfree" />
+           
                </div>
+
+
+
                <div>
-               Will you have a healthy/non-edible option? <Yesno 
+             <Yesno 
+             label="Will you have a healthy/non-edible option?"
                value={this.state.healthy}
                type="text"
                onChange={this.handleInputChange}
                name="healthy" />
                </div>
+
+               
                <div>
                What will you be giving out (if you know)? <Input
                value={this.state.treattype}
@@ -157,7 +222,9 @@ handleInputChange = event => {
          
           
             </Col>
-            <Col size="md-2" />
+            <Col size="md-2">
+           
+            </Col>
             </Row>
             <Row >
     
@@ -170,9 +237,7 @@ handleInputChange = event => {
            
     
            </Container>
-       
-               
-           
+             
             
                 );
             }

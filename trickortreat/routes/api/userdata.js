@@ -1,13 +1,13 @@
 const router = require("express").Router();
-const articleController = require("../../controllers/articleController");
+const dataController = require("../../controllers/dataController");
 
 // Routes to retrieve all articles and to post a new saved article to the db
 router.route("/")
-  .get(articleController.findAll)
-  .post(articleController.create);
+  .get(dataController.findAll)
+  .post(dataController.create);
 
 // Route to remove specific saved article
 router.route("/:id")
-  .delete(articleController.remove);
+  .delete(dataController.remove);
 
 module.exports = router;

@@ -5,38 +5,23 @@ mongoose.Promise = global.Promise;
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/nytreact",
+  process.env.MONGODB_URI || "mongodb://localhost/trickortruth",
   {
     useMongoClient: true
   }
 );
 
-const articleSeed = [
+const dataSeed = [
   {
-    title: "The Dead Zone",
-    date: new Date(Date.now()),
-    url: "www.google.com",
-    summary: "This is a great article"
+    firstname: "Jay",
+    lastname: "Hal"
   
-  },
-  {
-    title: "The Dead Zone",
-    date: new Date(Date.now()),
-    url: "www.google.com",
-    summary: "This is a great article"
-    
-  },
-  {
-    title: "The Dead Zone",
-    date: new Date(Date.now()),
-    url: "www.google.com",
-    summary: "This is a great article"
-} 
+  }
 ];
 
-db.Article
+db.Trickortruth
   .remove({})
-  .then(() => db.Article.collection.insertMany(articleSeed))
+  .then(() => db.Trickortruth.collection.insertMany(dataSeed))
   .then(data => {
     console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);

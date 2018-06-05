@@ -7,7 +7,7 @@ export const City = props => (
 
     <div className="form-group col-md-6">
       <label htmlFor="inputCity">City</label>
-      <input type="text" className="form-control" id="inputCity"/>
+      <input {...props} type="text" className="form-control" id="inputCity"/>
     </div>
 
 

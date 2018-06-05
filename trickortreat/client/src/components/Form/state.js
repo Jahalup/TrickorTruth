@@ -4,8 +4,8 @@ import "./form.css";
 export const Statechoice = props => (
 <div className="form-group col-md-4">
 <label htmlFor="inputState">State</label>
-<select id="inputState" className="form-control" >
-  
+<select {...props} id="inputState" className="form-control" >
+  <option>Choose...</option>
   <option>AL Alabama</option>
   <option>AK Alaska</option>
   <option>AZ Arizona</option>

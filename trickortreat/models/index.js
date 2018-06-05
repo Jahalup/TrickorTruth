@@ -1,3 +1,3 @@
 module.exports = {
-    Article: require("./trickinfo")
+    Trickortruth: require("./trickinfo")
   };

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const articleRoutes = require("./articles");
+const dataRoutes = require("./userdata");
 
-router.use("/articles", articleRoutes);
+router.use("/userentered", dataRoutes);
 module.exports = router;
