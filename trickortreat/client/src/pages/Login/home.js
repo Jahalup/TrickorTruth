@@ -151,7 +151,9 @@ render() {
       </Link>
       
         </Col>
-        <Col size="md-3" />
+        <Col size="md-3">
+        
+        </Col>
         </Row>
         <Row >
 

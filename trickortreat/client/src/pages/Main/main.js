@@ -205,7 +205,7 @@ handleFormSubmit = event => {
                name="treattype" />
                </div>
                <p id="code">Trick-or-treaters who know the code word get an extra treat!</p>
-               If you'd like to add a code word, do so here <Input 
+               <p id="codetitle">If you'd like to add a code word, do so here</p> <Input 
                value={this.state.codeword}
                type="text"
                onChange={this.handleInputChange}
