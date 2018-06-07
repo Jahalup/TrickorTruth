@@ -1,6 +1,6 @@
 import React from "react";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
-import { compose, withProps, lifecycle } from 'recompose';
+// s
 import { geocodeByAddress } from 'react-places-autocomplete';
 
 class LotMarker extends React.Component {
@@ -11,7 +11,9 @@ class LotMarker extends React.Component {
         super(props);
         // State.
         this.state = {
-            isOpen: false
+            isOpen: false,
+            position:''
+
         }
     }
     
@@ -20,7 +22,9 @@ class LotMarker extends React.Component {
         this.setState({isOpen: !this.state.isOpen});
     }
     
-    
+
+   
+
     // Render.
     render() {
     
@@ -31,22 +35,28 @@ class LotMarker extends React.Component {
             props: {
                 index,
                 lat,
-                lng,
-                open
+                lng
+            
+                
             }
         } = this
     
+
+//  geocodeByAddress(fulladdress).then(results => this.setState({position: results[0].geometry.location})).catch
+
     return (
-        <Marker key={index} position={{ lat: lat, lng: lng }} onClick={this.onToggleOpen}>
+        <Marker key={index} position={{lat: lat, lng: lng} } onClick={this.onToggleOpen} icon= 'http://maps.google.com/mapfiles/ms/icons/orange.png'>
             {this.state.isOpen && <InfoWindow onCloseClick={this.onToggleOpen}><span>{index}</span></InfoWindow>}
         </Marker>
         )
     }
     }
     
+    
+
     export default LotMarker;
-
-
+    // lat: lat, lng: lng
+    // geocodeByAddress(marker.fulladdress).then(results => coord.push(results[0].geometry.location)).then(
 // export const Markers = props => (
 
 // <Marker

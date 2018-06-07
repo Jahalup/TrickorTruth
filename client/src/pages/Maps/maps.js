@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { Nav } from "../../components/Navbar";
 import { Card } from "../../components/Card";
 import LotMarker  from "../../components/Markerstoplot";
 import { Regbtn } from "../../components/Form";
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
+import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 import API from "../../utils/API";
-import { geocodeByAddress } from 'react-places-autocomplete'
+import { geocodeByAddress } from 'react-places-autocomplete';
 import { compose, withProps, withStateHandlers } from 'recompose';
 import { Container, Col, Row} from "../../components/Grid";
 
@@ -21,13 +21,27 @@ const MyMapComponent = compose(
     )((props) =>
     <GoogleMap
         defaultZoom={15}
-        defaultCenter={{ lat: 34.6781445, lng: -82.8455519 }}
+        defaultCenter={{ lat: 28.5383, lng: -81.3792 }}
+       
     >
-        {props.markers.map(marker => (
+
+     
+        {props.markers.map((marker, i) => (
+            // geocodeByAddress(marker.fulladdress).then(results => console.log(results[0].geometry.location.lat()))
+            //     console.log("hello")
+            <LotMarker key={marker.key} fulladdress={marker.fulladdress} index={marker.key} lat={marker.latitude} lng={marker.longitude} />
+        )
+    
+         
+
             
-            <LotMarker key={marker.key} index={marker.key} lat={marker.latitude} lng={marker.longitude} />
+                //   <LotMarker key={marker.key} fulladdress={marker.fulladdress} index={marker.key} lat={marker.latitude} lng={marker.longitude} />
+             
+                // latitude = results[0].geometry.location.lat()).then(console.log("latitude " + latitude))
+            
            
-        ))}
+           
+        )}
     </GoogleMap>
     );
     
@@ -36,13 +50,18 @@ const MyMapComponent = compose(
         constructor(props) {
             super(props);
             this.state = {
-                test:'test',
+                coord: [],
+                all: [],
                 lots: [
-                    {latitude: 25.0112183,
+                    {
+                        // fulladdress: '63 agawam dr wayne NJ 07470'
+                        latitude: 25.0112183,
                      longitude: 121.52067570000001,
                      key: `Taiwan`
+
                     },
                     {
+                        // fulladdress: '5770 Oxford Moor Blvd. Windermere FL 34786'
                     latitude:  39.9042,
                     longitude: 116.4074,
                     key: `Beijing`
@@ -51,6 +70,16 @@ const MyMapComponent = compose(
             };
         }
       
+
+        componentWillMount() {
+            this.loadmarkers();
+        }
+
+        loadmarkers = () => {
+                API.getMarkers().then(results => {this.setState({all: results.data})
+                console.log(results);
+                console.log(this.state.all[0]);
+            })}
         // componentWillMount() {
         //     base.bindToState('lots', {
         //         context: this,

@@ -2,7 +2,7 @@ import React from "react";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import { compose, withProps, lifecycle, withStateHandlers } from 'recompose';
 import { LotMarker } from "../Markerstoplot";
-// import { Markers } from "../Markerstoplot";
+
 
 
 export const MyMapComponent =
@@ -20,6 +20,9 @@ compose(
         defaultZoom={15}
         defaultCenter={{ lat: 34.6781445, lng: -82.8455519 }}
     >
+
+
+    
         {props.markers.map(marker => (
             <LotMarker key={marker.key} index={marker.key} lat={marker.latitude} lng={marker.longitude} />
         ))}

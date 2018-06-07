@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./main.css";
 import API from "../../utils/API";
 // import { Input, FormBtn } from "../../components/Form";
-
+import { geocodeByAddress } from 'react-places-autocomplete';
 import { Input, Yesno, City, Statechoice, Zipcode, Regbtn } from "../../components/Form";
 import { Container, Col, Row} from "../../components/Grid";
 import { Nav } from "../../components/Navbar";
@@ -60,7 +60,13 @@ handleFormSubmit = event => {
     let healthy = this.state.healthy;
     let treattype = this.state.treattype;
     let codeword = this.state.codeword;
+    
+    let fulladdress = address + ' ' + city + ' ' + statechoice + ' ' + zipcode
+//    geocodeByAddress(fulladdress).then(results => latitude = results[0].geometry.location.lat()).then(console.log("latitude " + latitude))
+    console.log("fulladdress: " + fulladdress);
    
+
+    // (results => console.log(results[0].geometry.location.lat() + "and" + results[0].geometry.location.lng() ) )
 
     // let { topic, startyear, endyear } = this.state;
     // let userdata = { firstname, lastname, email, password, address, city }
@@ -69,10 +75,11 @@ handleFormSubmit = event => {
     lastname: lastname,
     email: email,
     password: password,
-    address:address,
-    city: city,
-    statechoice: statechoice,
-    zipcode: zipcode,
+    // address:address,
+    // city: city,
+    // statechoice: statechoice,
+    // zipcode: zipcode,
+    fulladdress: fulladdress,
     treats: treats,
     peanutfree: peanutfree,
     healthy: healthy,
