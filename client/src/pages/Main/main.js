@@ -91,9 +91,14 @@ handleFormSubmit = event => {
     console.log(this.state);
     API.saveUserData(userdata).then(results => {
         console.log(results);
+        window.location.assign("/mappage");
+
+
     })
     .catch(err => console.log(err));    
 }
+
+
     // this.getnewarts(query)
 
 

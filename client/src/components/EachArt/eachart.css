@@ -1,4 +1,4 @@
-.linktext {
+/* .linktext {
     color: black;
 }
 
@@ -15,4 +15,12 @@
 
 .textcard {
     border-radius: 10px;
+} */
+
+.eachdiv {
+    background-color:rgba(247, 190, 84, 0.705);
+}
+
+.cardttl {
+    text-align: center;
 }

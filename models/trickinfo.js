@@ -21,3 +21,4 @@ const trickortruthSchema = new Schema({
 const Trickortruth = mongoose.model("Trickortruth", trickortruthSchema);
 
 module.exports = Trickortruth;
+

@@ -1,14 +1,20 @@
 import React from "react";
 import "./eachart.css";
 
-export const SavedArticle = props => (
+export const SavedHouse = props => (
 
 
-<div className="col s12 savedindi">
-    <h4 className="header"> <a className="linktext" href={props.url}>{props.title}</a></h4>
-    <div className="card horizontal textcard">
-    <p id="summary">{props.summary}</p>
-    <button className="btn btn-success button #6d4c41 brown darken-1" onClick={props.onClick}>Delete</button>
+<div >
+
+    <div >
+    <div className="card maincard">
+  <div className="card-body eachdiv">
+    <h6 class="cardttl">{props.fulladdress}</h6>
+    <p>Healthy treat: {props.healthy}</p>
+    <p>Peanut-free treat: {props.peanutfree}</p>
+    <p>Treat name: {props.treattype}</p>
+  </div>
+  </div>
   </div>
   </div>
 

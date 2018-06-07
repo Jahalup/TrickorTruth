@@ -2,6 +2,8 @@ import React from "react";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 // s
 import { geocodeByAddress } from 'react-places-autocomplete';
+import "./marker.css";
+
 
 class LotMarker extends React.Component {
 
@@ -35,7 +37,10 @@ class LotMarker extends React.Component {
             props: {
                 index,
                 lat,
-                lng
+                lng,
+                healthy,
+                peanutfree,
+                address
             
                 
             }
@@ -46,7 +51,7 @@ class LotMarker extends React.Component {
 
     return (
         <Marker key={index} position={{lat: lat, lng: lng} } onClick={this.onToggleOpen} icon= 'http://maps.google.com/mapfiles/ms/icons/orange.png'>
-            {this.state.isOpen && <InfoWindow onCloseClick={this.onToggleOpen}><span>{index}</span></InfoWindow>}
+            {this.state.isOpen && <InfoWindow onCloseClick={this.onToggleOpen}><span><p style={{color:"orange"}}>{address}</p><p>treat: {index}</p><p> healthy: {healthy}</p><p>peanutfree:{peanutfree}</p></span></InfoWindow>}
         </Marker>
         )
     }
