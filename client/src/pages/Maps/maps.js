@@ -33,7 +33,7 @@ const MyMapComponent = compose(
     </GoogleMap>
     );
     
-    class TheMap extends React.Component {
+    class Mappage extends React.Component {
     
         constructor(props) {
             super(props);
@@ -117,9 +117,9 @@ const MyMapComponent = compose(
                 markers={this.state.lots} 
                 />
                 </Col>
-          </Row> 
-          </Container>
+                    </Row> 
+                </Container>
             )
         }
     }
-    export default TheMap;
+    export default Mappage;
