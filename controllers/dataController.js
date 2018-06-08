@@ -27,6 +27,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
     },  
+    findByHealthy: function(req, res) {
+      db.Trickortruth
+      .find({healthy: req.params.yesh, zipcode: req.params.healthyzip, treats: req.params.treats}, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+    },  
   create: function(req, res) {
     db.Trickortruth
       .create(req.body)

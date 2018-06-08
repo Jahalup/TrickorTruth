@@ -13,9 +13,12 @@ router.route("/:id")
 router.route("/:zip")  
 .get(dataController.findByZip);
 
-
 router.route("/:peanut/:yeso")
 .get(dataController.findByPeanut);
+
+router.route("/:yesh/:healthyzip/:treats")
+.get(dataController.findByHealthy);
+
 
 
 

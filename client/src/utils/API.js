@@ -16,6 +16,11 @@ export default {
     // queryNYT: function(url) {
     //     return axios.get(url);
     // },
+
+    getziphealthy: function(yesh, healthyzip, treats) {
+        return axios.get("/api/userentered/" + yesh + "/" + healthyzip + "/" + treats);
+    },
+
     saveUserData: function(userdata) {
         return axios.post("/api/userentered", userdata);
     }

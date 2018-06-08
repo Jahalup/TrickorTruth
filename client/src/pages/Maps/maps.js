@@ -85,9 +85,20 @@ const MyMapComponent = compose(
         seepeanutfree = event => {
             event.preventDefault();
             let peanut = this.state.zip;
-            let yeso = "Yes";
+            let yeso = 'Yes';
+           
             API.getzippeanut(peanut, yeso).then(results => {this.setState({all: results.data})}
             )};
+
+
+            // {this.setState({all: results.data})}
+        seehealthy = event => {
+            event.preventDefault();
+            let yesh = 'Yes';
+            let healthyzip = this.state.zip;
+            let treats = 'Yes';
+            API.getziphealthy(yesh, healthyzip, treats).then(results =>  {this.setState({all: results.data})}
+            )};   
        
 
         componentWillMount() {
@@ -126,6 +137,7 @@ const MyMapComponent = compose(
                    name="zip"/>
                    <input className="btn btn-warning" style={{margin: "2px"}} type="submit" value="See All" onClick={this.seeall } />
                    <input className="btn btn-warning" type="submit" value="See Peanut Free" onClick={this.seepeanutfree } />
+                   <input className="btn btn-warning" style={{margin: "2px"}} type="submit" value="See Healthy" onClick={this.seehealthy } />
                </form>
 
                 
