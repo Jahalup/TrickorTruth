@@ -15,6 +15,7 @@ class LotMarker extends React.Component {
         this.state = {
             isOpen: false,
             position:''
+            
 
         }
     }

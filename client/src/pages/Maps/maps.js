@@ -76,14 +76,19 @@ const MyMapComponent = compose(
             })
         };
       
-        handleFormSubmit = event => {
+        seeall = event => {
             event.preventDefault();
             let zip = this.state.zip;
             API.getzipMarkers(zip).then(results => {this.setState({all: results.data})}
         )};
 
+        seepeanutfree = event => {
+            event.preventDefault();
+            let peanut = this.state.zip;
+            let yeso = "Yes";
+            API.getzippeanut(peanut, yeso).then(results => {this.setState({all: results.data})}
+            )};
        
-
 
         componentWillMount() {
             this.loadmarkers();
@@ -112,14 +117,15 @@ const MyMapComponent = compose(
                 <Nav />
                    <Row>
                   <Col size="md-4">
-                  <h3 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center'}}>Search By Zip</h3>
+                  <h3 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center', marginTop: "10px"}}>Search By Zip</h3>
                   <form>
                   <Input 
                    value={this.state.zip}
                    type="number"
                    onChange={this.handleInputChange}
                    name="zip"/>
-                   <input className="btn btn-warning" type="submit" value="Submit" onClick={this.handleFormSubmit } />
+                   <input className="btn btn-warning" style={{margin: "2px"}} type="submit" value="See All" onClick={this.seeall } />
+                   <input className="btn btn-warning" type="submit" value="See Peanut Free" onClick={this.seepeanutfree } />
                </form>
 
                 

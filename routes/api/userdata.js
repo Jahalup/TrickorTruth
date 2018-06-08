@@ -13,4 +13,10 @@ router.route("/:id")
 router.route("/:zip")  
 .get(dataController.findByZip);
 
+
+router.route("/:peanut/:yeso")
+.get(dataController.findByPeanut);
+
+
+
 module.exports = router;

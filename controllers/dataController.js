@@ -21,6 +21,12 @@ module.exports = {
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
     },
+  findByPeanut: function(req, res) {
+      db.Trickortruth
+      .find({zipcode: req.params.peanut, peanutfree: req.params.yeso}, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+    },  
   create: function(req, res) {
     db.Trickortruth
       .create(req.body)

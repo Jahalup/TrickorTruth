@@ -9,6 +9,10 @@ export default {
         console.log("this is api zip: " + zip);
         return axios.get("/api/userentered/" + zip);
     },
+
+    getzippeanut: function(peanut, yeso) {
+        return axios.get("/api/userentered/" + peanut + "/" + yeso);
+    },
     // queryNYT: function(url) {
     //     return axios.get(url);
     // },
