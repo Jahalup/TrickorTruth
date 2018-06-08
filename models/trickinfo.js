@@ -9,7 +9,7 @@ const trickortruthSchema = new Schema({
   // address: { type: String, required: false },
   // city: { type: String, required: false },
   // statechoice: { type: String, required: false },
-  // zipcode: { type: String, required: false },
+  zipcode: { type: String, required: false },
   fulladdress:  { type: String, required: false },
   treats: { type: String, required: false },
   peanutfree: { type: String, required: false },

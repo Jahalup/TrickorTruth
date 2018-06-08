@@ -15,6 +15,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findByZip: function(req, res) {
+    db.Trickortruth
+    .find({zipcode: req.params.zip}, req.body)
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+    },
   create: function(req, res) {
     db.Trickortruth
       .create(req.body)

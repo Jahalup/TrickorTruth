@@ -2,7 +2,7 @@ import React from "react";
 import { Nav } from "../../components/Navbar";
 import { Card } from "../../components/Card";
 import LotMarker  from "../../components/Markerstoplot";
-import { Regbtn, Filterbtn } from "../../components/Form";
+import { Regbtn, Filterbtn, Input} from "../../components/Form";
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 import API from "../../utils/API";
 import { geocodeByAddress } from 'react-places-autocomplete';
@@ -38,6 +38,7 @@ const MyMapComponent = compose(
         constructor(props) {
             super(props);
             this.state = {
+                zip: '',
                 // coord: [],
                 all: [],
                 lots: [
@@ -64,7 +65,25 @@ const MyMapComponent = compose(
                 isOpen: false
             }
         }
+
+        handleInputChange = event => {
+            console.log(event.target);
+            const { name, value } = event.target;
+            // console.log({name, value});
+            console.log([name]);
+            this.setState({
+                [name]: value
+            })
+        };
       
+        handleFormSubmit = event => {
+            event.preventDefault();
+            let zip = this.state.zip;
+            API.getzipMarkers(zip).then(results => {this.setState({all: results.data})}
+        )};
+
+       
+
 
         componentWillMount() {
             this.loadmarkers();
@@ -93,9 +112,17 @@ const MyMapComponent = compose(
                 <Nav />
                    <Row>
                   <Col size="md-4">
-                 <Filterbtn
-                     name="Peanut Free"
-                      />
+                  <h3 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center'}}>Search By Zip</h3>
+                  <form>
+                  <Input 
+                   value={this.state.zip}
+                   type="number"
+                   onChange={this.handleInputChange}
+                   name="zip"/>
+                   <input className="btn btn-warning" type="submit" value="Submit" onClick={this.handleFormSubmit } />
+               </form>
+
+                
                   <Card > 
                       <h3 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center'}}>Local Houses</h3>
                   {this.state.all.map((result, i) => (

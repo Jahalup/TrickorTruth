@@ -10,4 +10,7 @@ router.route("/")
 router.route("/:id")
   .delete(dataController.remove);
 
+router.route("/:zip")  
+.get(dataController.findByZip);
+
 module.exports = router;

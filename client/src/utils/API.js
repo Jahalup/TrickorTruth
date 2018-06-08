@@ -4,6 +4,11 @@ export default {
     getMarkers: function() {
         return axios.get("/api/userentered");
     },
+
+    getzipMarkers: function(zip) {
+        console.log("this is api zip: " + zip);
+        return axios.get("/api/userentered/" + zip);
+    },
     // queryNYT: function(url) {
     //     return axios.get(url);
     // },

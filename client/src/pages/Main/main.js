@@ -78,7 +78,7 @@ handleFormSubmit = event => {
     // address:address,
     // city: city,
     // statechoice: statechoice,
-    // zipcode: zipcode,
+    zipcode: zipcode,
     fulladdress: fulladdress,
     treats: treats,
     peanutfree: peanutfree,
