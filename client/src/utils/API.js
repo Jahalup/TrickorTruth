@@ -1,6 +1,10 @@
 import axios from "axios";
 
 export default {
+
+    // retrieveuser: function(user) {
+    //     return axios.get("/api/searchuser/" + user)
+    // },
     getMarkers: function() {
         return axios.get("/api/userentered");
     },

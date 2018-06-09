@@ -1,60 +1,58 @@
 // Imports
 import React, { Component } from "react";
-// import API from "../../utils/API";
+
+import API from "../../utils/API";
 // import { Input, FormBtn } from "../../components/Form";
 import { Card, Header } from "../../components/Card";
-import { Form, Regbtn } from "../../components/Form";
+import { Form, Regbtn, Input } from "../../components/Form";
 import { Container, Col, Row} from "../../components/Grid";
 import { Nav } from "../../components/Navbar";
 import { Image } from "../../components/Image";
 import { Link } from "react-router-dom";
 
+
 import "./pages.css";
 
 // Setting state
 class Login extends Component {
-//     state = {
-//         topic: '',
-//         startyear: '',
-//         endyear: '',
-//         results: [],
-//         previousSearch: {},
-//         noResults: false
-//     }
-
-// // Function to save article
-// saveArticle = (result) => {
-//     console.log(result);
-//     let savedarticle = {
-//         date: result.pub_date,
-//         title: result.headline.main,
-//         url: result.web_url,
-//         summary: result.snippet
-//     }
-//     console.log("savedarticle: " + savedarticle);
-
-// // API request to save artice
-// API.saveArticle(savedarticle).then(results => {
-//     console.log(results);
-// // Updating the results to exclude the saved article
-//     let newsavedlist = this.state.results.filter(result => result.headline.main !== savedarticle.title)
-//     this.setState({results: newsavedlist })
-// })
-// .catch(err => console.log(err));    
-// }
+    state = {
+       firstname: '',
+       password: ''
+    }
 
 
 
 // // Function to capture user input being entered
-// handleInputChange = event => {
-//     console.log(event.target);
-//     const { name, value } = event.target;
-//     // console.log({name, value});
-//     console.log([name]);
-//     this.setState({
-//         [name]: value
-//     })
-// };
+handleInputChange = event => {
+    console.log(event.target);
+    const { name, value } = event.target;
+    // console.log({name, value});
+    console.log([name]);
+    this.setState({
+        [name]: value
+    })
+};
+
+handleFormSubmit = event => {
+    event.preventDefault();
+
+    let user = this.state.firstname;
+    // let password = this.state.password;
+
+
+   
+        // password: password
+    
+    console.log(user);
+
+window.location.assign("/mappage?username=" + user);
+    // API.retrieveuser(user).then(results => {
+    //     console.log(results)
+        // window.location.assign("/mappage?username=" + results.data.firstname);
+    // })
+    // .catch(err => console.log(err));    
+}
+
 
 // // Submit button pressed
 // handleFormSubmit = event => {
@@ -144,7 +142,22 @@ render() {
            <Col size="md-3" />
         <Col size="md-6">    
        <Card>
-           <Form />
+       <form ref="form" onSubmit={this.handlesubmit }>
+       Username:<Input 
+                 value={this.state.firstname}
+                 type="text"
+                 onChange={this.handleInputChange}
+                 name="firstname" 
+                 />
+        Password:  <Input 
+                value={this.state.password}
+                type="password"
+                onChange={this.handleInputChange}
+                name="password" />
+                {/* <div style={{textAlign:"center"}}> */}
+                <input className="btn-sm btn-warning shadow p-3 mb-5 rounded" type="submit" value="Login" onClick={this.handleFormSubmit } />
+                {/* </div> */}
+          </form>
         </Card>
         <Link to='./datapage'>
         <Regbtn />

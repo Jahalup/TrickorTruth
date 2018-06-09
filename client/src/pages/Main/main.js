@@ -222,7 +222,7 @@ handleFormSubmit = event => {
                type="text"
                onChange={this.handleInputChange}
                name="codeword" />
-               <input className="btn btn-warning" type="submit" value="Submit" onClick={this.handleFormSubmit } />
+               <input className="btn btn-warning shadow p-3 mb-5 rounded" type="submit" value="Submit" onClick={this.handleFormSubmit } />
                </form>
                <Link to='./mappage' params={{firstname: this.state.firstname}}>
         <Regbtn />

@@ -81,8 +81,14 @@ const MyMapComponent = compose(
             event.preventDefault();
             let zip = this.state.zip;
             let treat = "Yes";
+            if(zip===''){
+                alert("please enter a zipcode")
+            }
+            else {
             API.getzipMarkers(zip, treat).then(results => {this.setState({all: results.data})}
-        )};
+            
+        )}
+    };
 
         seepeanutfree = event => {
             event.preventDefault();
@@ -146,7 +152,9 @@ const MyMapComponent = compose(
         render() {
             return (
                 <Container fluid>
-                <Nav />
+                <Nav>
+                 
+                </Nav>
               <h1 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center', marginTop: "10px"}}> Hello, {this.state.user}</h1>
                    <Row>
                   <Col size="md-4">
@@ -157,7 +165,7 @@ const MyMapComponent = compose(
                    type="number"
                    onChange={this.handleInputChange}
                    name="zip"/>
-                   <input className="btn btn-warning" style={{margin: "2px"}} type="submit" value="See All" onClick={this.seeall } />
+                   <input className="btn btn-warning  " style={{margin: "2px"}} type="submit" value="See All" onClick={this.seeall } />
                    <input className="btn btn-warning" type="submit" value="See Peanut Free" onClick={this.seepeanutfree } />
                    {/* <input className="btn btn-warning" style={{margin: "2px"}} type="submit" value="See Healthy" onClick={this.seehealthy } /> */}
                </form>
