@@ -9,30 +9,30 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
+  getUser: function(req, res) {
     db.Trickortruth
-      .findById(req.params.id)
+      .findOne({firstname: req.params.usernm})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findByZip: function(req, res) {
     db.Trickortruth
-    .find({zipcode: req.params.zip}, req.body)
+    .find({zipcode: req.params.zip, treats: req.params.treat}, req.body)
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
     },
   findByPeanut: function(req, res) {
       db.Trickortruth
-      .find({zipcode: req.params.peanut, peanutfree: req.params.yeso}, req.body)
+      .find({zipcode: req.params.peanut, peanutfree: req.params.yeso, treats:req.params.treat}, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
     },  
-    findByHealthy: function(req, res) {
-      db.Trickortruth
-      .find({healthy: req.params.yesh, zipcode: req.params.healthyzip, treats: req.params.treats}, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-    },  
+    // findByPeanut: function(req, res) {
+    //   db.Trickortruth
+    //   .find({healthy: req.params.yesh, zipcode: req.params.healthyzip, treats: req.params.treats}, req.body)
+    //   .then(dbModel => res.json(dbModel))
+    //   .catch(err => res.status(422).json(err));
+    // },  
   create: function(req, res) {
     db.Trickortruth
       .create(req.body)

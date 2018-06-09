@@ -91,7 +91,7 @@ handleFormSubmit = event => {
     console.log(this.state);
     API.saveUserData(userdata).then(results => {
         console.log(results);
-        window.location.assign("/mappage");
+        window.location.assign("/mappage?username=" + results.data.firstname);
 
 
     })
@@ -224,7 +224,7 @@ handleFormSubmit = event => {
                name="codeword" />
                <input className="btn btn-warning" type="submit" value="Submit" onClick={this.handleFormSubmit } />
                </form>
-               <Link to='./mappage'>
+               <Link to='./mappage' params={{firstname: this.state.firstname}}>
         <Regbtn />
       </Link>
 

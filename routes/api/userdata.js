@@ -7,17 +7,17 @@ router.route("/")
   .post(dataController.create);
 
 // Route to remove specific saved article
-router.route("/:id")
-  .delete(dataController.remove);
+router.route("/:usernm")
+  .get(dataController.getUser);
 
-router.route("/:zip")  
+router.route("/:zip/:treat")  
 .get(dataController.findByZip);
 
-router.route("/:peanut/:yeso")
+router.route("/:peanut/:yeso/:treat")
 .get(dataController.findByPeanut);
 
-router.route("/:yesh/:healthyzip/:treats")
-.get(dataController.findByHealthy);
+// router.route("/:yesh/:healthyzip/:treats")
+// .get(dataController.findByHealthy);
 
 
 

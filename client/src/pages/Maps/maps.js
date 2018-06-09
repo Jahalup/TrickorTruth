@@ -8,7 +8,7 @@ import API from "../../utils/API";
 import { geocodeByAddress } from 'react-places-autocomplete';
 import { compose, withProps, withStateHandlers } from 'recompose';
 import { Container, Col, Row} from "../../components/Grid";
-import { SavedHouse } from "../../components/EachArt";
+import { SavedHouse, Userheader } from "../../components/EachArt";
 
 const MyMapComponent = compose(
     withProps({
@@ -39,8 +39,9 @@ const MyMapComponent = compose(
             super(props);
             this.state = {
                 zip: '',
-                // coord: [],
                 all: [],
+                user:'',
+                userzip:'',
                 lots: [
                     {
                         // fulladdress: '63 agawam dr wayne NJ 07470'
@@ -79,37 +80,57 @@ const MyMapComponent = compose(
         seeall = event => {
             event.preventDefault();
             let zip = this.state.zip;
-            API.getzipMarkers(zip).then(results => {this.setState({all: results.data})}
+            let treat = "Yes";
+            API.getzipMarkers(zip, treat).then(results => {this.setState({all: results.data})}
         )};
 
         seepeanutfree = event => {
             event.preventDefault();
             let peanut = this.state.zip;
             let yeso = 'Yes';
+            let treat = 'Yes';
            
-            API.getzippeanut(peanut, yeso).then(results => {this.setState({all: results.data})}
+            API.getzippeanut(peanut, yeso, treat).then(results => {this.setState({all: results.data})}
             )};
 
 
             // {this.setState({all: results.data})}
-        seehealthy = event => {
-            event.preventDefault();
-            let yesh = 'Yes';
-            let healthyzip = this.state.zip;
-            let treats = 'Yes';
-            API.getziphealthy(yesh, healthyzip, treats).then(results =>  {this.setState({all: results.data})}
-            )};   
+        // seehealthy = event => {
+        //     event.preventDefault();
+        //     let yesh = 'Yes';
+        //     let healthyzip = this.state.zip;
+        //     let treats = 'Yes';
+        //     API.getziphealthy(yesh, healthyzip, treats).then(results =>  {this.setState({all: results.data})}
+        //     )};   
        
 
-        componentWillMount() {
+        componentDidMount() {
             this.loadmarkers();
         }
 
         loadmarkers = () => {
-                API.getMarkers().then(results => {this.setState({all: results.data})}
+                API.getMarkers().then(results => {this.setState({all: results.data})}).then(this.getuserdata())
+               
                 // console.log(results)
                 // console.log(this.state.all[0])
-            )};
+          
+        };
+
+        getuserdata() {
+            let url = window.location.search;
+            let usernm = '';
+            if (url.indexOf("?username=") !== -1) {
+                usernm = url.split("=")[1]
+                console.log("usernm" + usernm)
+              
+            API.getuserdata(usernm).then(results => {this.setState({user: results.data.firstname})})
+        }
+
+        else {console.log("nothing")}
+    }
+
+    
+
         // componentWillMount() {
         //     base.bindToState('lots', {
         //         context: this,
@@ -126,6 +147,7 @@ const MyMapComponent = compose(
             return (
                 <Container fluid>
                 <Nav />
+              <h1 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center', marginTop: "10px"}}> Hello, {this.state.user}</h1>
                    <Row>
                   <Col size="md-4">
                   <h3 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center', marginTop: "10px"}}>Search By Zip</h3>
@@ -137,7 +159,7 @@ const MyMapComponent = compose(
                    name="zip"/>
                    <input className="btn btn-warning" style={{margin: "2px"}} type="submit" value="See All" onClick={this.seeall } />
                    <input className="btn btn-warning" type="submit" value="See Peanut Free" onClick={this.seepeanutfree } />
-                   <input className="btn btn-warning" style={{margin: "2px"}} type="submit" value="See Healthy" onClick={this.seehealthy } />
+                   {/* <input className="btn btn-warning" style={{margin: "2px"}} type="submit" value="See Healthy" onClick={this.seehealthy } /> */}
                </form>
 
                 
