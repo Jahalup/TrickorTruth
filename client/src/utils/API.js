@@ -5,11 +5,18 @@ export default {
     // retrieveuser: function(user) {
     //     return axios.get("/api/searchuser/" + user)
     // },
+
     getMarkers: function() {
         return axios.get("/api/userentered");
     },
     getuserdata: function(usernm) {
         return axios.get("/api/userentered/" + usernm)
+    },
+
+    updateuser: function(userfirstname, userdata) {
+        console.log(userfirstname);
+        console.log(userdata);
+        return axios.put("/api/userentered/" + userfirstname, userdata);
     },
 
     getzipMarkers: function(zip, treat) {

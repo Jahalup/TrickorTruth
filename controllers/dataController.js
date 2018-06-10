@@ -9,12 +9,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // finduser: function(req, res) {
-  //   db.Trickortruth
-  //   .findOne({firstname: req.params.user})
-  //   .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  update: function(req, res) {
+    db.Trickortruth
+      .findManyAndUpdate({"firstname": req.params.userfirstname}, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+ 
   getUser: function(req, res) {
     db.Trickortruth
       .findOne({firstname: req.params.usernm})

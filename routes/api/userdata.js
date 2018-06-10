@@ -1,14 +1,19 @@
 const router = require("express").Router();
 const dataController = require("../../controllers/dataController");
 
-// Routes to retrieve all articles and to post a new saved article to the db
+
 router.route("/")
   .get(dataController.findAll)
   .post(dataController.create);
+  
+  router.route("/:userfirstname")  
+  .put(dataController.update);
 
-// Route to remove specific saved article
+
 router.route("/:usernm")
   .get(dataController.getUser);
+ 
+
 
 router.route("/:zip/:treat")  
 .get(dataController.findByZip);

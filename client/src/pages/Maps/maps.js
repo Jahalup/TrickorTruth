@@ -5,33 +5,35 @@ import LotMarker  from "../../components/Markerstoplot";
 import { Regbtn, Filterbtn, Input} from "../../components/Form";
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 import API from "../../utils/API";
+import { Link } from "react-router-dom";
 import { geocodeByAddress } from 'react-places-autocomplete';
 import { compose, withProps, withStateHandlers } from 'recompose';
 import { Container, Col, Row} from "../../components/Grid";
 import { SavedHouse, Userheader } from "../../components/EachArt";
+import { MyMapComponent } from "../../components/Map";
 
-const MyMapComponent = compose(
-    withProps({
-        googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyC_8NVMAxrnk_N7O6emZCRjjrCn-7zkcJk",
-        loadingElement: <div style={{ height: `100%` }} />,
-        containerElement: <div style={{ height: `500px` }} />,
-        mapElement: <div style={{ height: `100%` }} />
-    }),
-    withScriptjs,
-    withGoogleMap
-    )((props) =>
-    <GoogleMap
-        defaultZoom={15}
-        defaultCenter={{ lat: 28.483072, lng:-81.576246 }}
-    >
+// const MyMapComponent = compose(
+//     withProps({
+//         googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyC_8NVMAxrnk_N7O6emZCRjjrCn-7zkcJk",
+//         loadingElement: <div style={{ height: `100%` }} />,
+//         containerElement: <div style={{ height: `500px` }} />,
+//         mapElement: <div style={{ height: `100%` }} />
+//     }),
+//     withScriptjs,
+//     withGoogleMap
+//     )((props) =>
+//     <GoogleMap
+//         defaultZoom={15}
+//         defaultCenter={{ lat: 28.483072, lng:-81.576246 }}
+//     >
 
-        {props.markers.map((marker, i) => (
-            <LotMarker key={marker.key} address={marker.address} index={marker.key} healthy={marker.healthy} peanutfree={marker.peanutfree} lat={marker.latitude} lng={marker.longitude} />
-        )
+//         {props.markers.map((marker, i) => (
+//             <LotMarker key={marker.key} address={marker.address} index={marker.key} healthy={marker.healthy} peanutfree={marker.peanutfree} lat={marker.latitude} lng={marker.longitude} />
+//         )
            
-        )}
-    </GoogleMap>
-    );
+//         )}
+//     </GoogleMap>
+//     );
     
     class Mappage extends React.Component {
     
@@ -129,7 +131,7 @@ const MyMapComponent = compose(
                 usernm = url.split("=")[1]
                 console.log("usernm" + usernm)
               
-            API.getuserdata(usernm).then(results => {this.setState({user: results.data.firstname})})
+            API.getuserdata(usernm).then(results => {this.setState({user: results.data.firstname, zip: results.data.zipcode})})
         }
 
         else {console.log("nothing")}
@@ -152,27 +154,40 @@ const MyMapComponent = compose(
         render() {
             return (
                 <Container fluid>
-                <Nav>
-                 
-                </Nav>
+                <Nav
+                name={this.state.user}
+                />
               <h1 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center', marginTop: "10px"}}> Hello, {this.state.user}</h1>
                    <Row>
+                       <Col size="md-4" >
+                       </Col>
                   <Col size="md-4">
                   <h3 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center', marginTop: "10px"}}>Search By Zip</h3>
                   <form>
                   <Input 
+                   
                    value={this.state.zip}
                    type="number"
                    onChange={this.handleInputChange}
                    name="zip"/>
-                   <input className="btn btn-warning  " style={{margin: "2px"}} type="submit" value="See All" onClick={this.seeall } />
+                   <input className="btn btn-warning  " style={{margin: "2px"}} type="submit" value="Search in this Zipcode" onClick={this.seeall } />
                    <input className="btn btn-warning" type="submit" value="See Peanut Free" onClick={this.seepeanutfree } />
                    {/* <input className="btn btn-warning" style={{margin: "2px"}} type="submit" value="See Healthy" onClick={this.seehealthy } /> */}
+                   
                </form>
-
-                
+               </Col>
+               <Col size="md-4">
+               <div style={{textAlign: "center"}}>
+               <Link to='./mapview'>
+               <input className="btn-lg btn-warning"  type="submit" value="View The Map"/>
+                </Link>
+                </div>
+                </Col>
+                </Row>
+                <Row>
+                    <Col size="md-12">
                   <Card > 
-                      <h3 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center'}}>Local Houses</h3>
+                      <h3 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center'}}><img style={{height: "80px", width: "80px"}} src={ require('./hauntedhouse.png') } />Local Houses <img style={{height: "80px", width: "80px"}} src={ require('./hauntedhouse.png') } /></h3>
                   {this.state.all.map((result, i) => (
                       <SavedHouse
                       key={i}
@@ -185,13 +200,13 @@ const MyMapComponent = compose(
 
                         </Card>
                        </Col>
-                    <Col size="md-8" >
-                <MyMapComponent
+                    {/* <Col size="md-8" > */}
+                {/* <MyMapComponent
                 isMarkerShown={this.state.isMarkerShown}
                 // onMarkerClick={this.handleMarkerClick} 
                 markers={this.state.lots} 
-                />
-                </Col>
+                /> */}
+                {/* </Col> */}
                     </Row> 
                 </Container>
             )
