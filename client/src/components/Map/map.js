@@ -24,13 +24,13 @@ export const MyMapComponent = compose(
     withGoogleMap
     )((props) =>
     <GoogleMap
-        defaultZoom={15}
+        defaultZoom={10}
         defaultCenter={{ lat: 28.483072, lng:-81.576246 }}
     >
 
         {props.markers.map((marker, i) => (
            
-            <LotMarker address={marker.fulladdress} healthy={marker.healthy} peanutfree={marker.peanutfree} />
+            <LotMarker address={marker.fulladdress} healthy={marker.healthy} peanutfree={marker.peanutfree} treattype={marker.treattype} codeword={marker.codeword} />
             // <LotMarker address={marker.address} index={marker.key} healthy={marker.healthy} peanutfree={marker.peanutfree} lat={marker.latitude} lng={marker.longitude} />
         )
            

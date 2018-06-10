@@ -89,7 +89,9 @@ convertaddress = () => {
                 lng,
                 healthy,
                 peanutfree,
-                address
+                address,
+                codeword,
+                treattype
             
                 
             }
@@ -99,7 +101,8 @@ convertaddress = () => {
 //  geocodeByAddress(fulladdress).then(results => this.setState({position: results[0].geometry.location})).catch
 return (
     <Marker  position={this.state.position} onClick={this.onToggleOpen} icon= 'http://maps.google.com/mapfiles/ms/icons/orange.png'>
-        {this.state.isOpen && <InfoWindow onCloseClick={this.onToggleOpen}><span><p style={{color:"orange"}}>{address}</p><p> healthy: {healthy}</p><p>peanutfree:{peanutfree}</p></span></InfoWindow>}
+        {this.state.isOpen && <InfoWindow onCloseClick={this.onToggleOpen}><span><p id="addresshead">{address}</p><p className="eachlabel"> healthy:{'  '} {healthy}</p>
+        <p className="eachlabel">peanutfree:{'  '}{peanutfree}</p><p className="eachlabel">treat:{'  '}{treattype}</p><p className="eachlabel">code:{'  '}{codeword}</p></span></InfoWindow>}
     </Marker>
     )
 }

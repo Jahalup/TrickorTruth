@@ -46,27 +46,27 @@ import "./maps.css";
                 all: [],
                 user:'',
                 userzip:'',
-                lots: [
-                    {
-                        // fulladdress: '63 agawam dr wayne NJ 07470'
-                    address: `5770 Oxford Moor Blvd.`,
-                    latitude: 28.483072,
-                    longitude: -81.576246,
-                    key: `Snickers`,
-                    healthy: `No`,
-                    peanutfree: `No`
+                // lots: [
+                //     {
+                //         // fulladdress: '63 agawam dr wayne NJ 07470'
+                //     address: `5770 Oxford Moor Blvd.`,
+                //     latitude: 28.483072,
+                //     longitude: -81.576246,
+                //     key: `Snickers`,
+                //     healthy: `No`,
+                //     peanutfree: `No`
 
 
-                    },
-                    {
-                        // fulladdress: '5770 Oxford Moor Blvd. Windermere FL 34786'
-                    address: `5800 Oxford Moor Blvd.`,    
-                    latitude:  28.482483,
-                    longitude: -81.575999,
-                    key: `Smarties, pretzels`,
-                    healthy: `No`,
-                    peanutfree: `Yes`
-                   }],
+                //     },
+                //     {
+                //         // fulladdress: '5770 Oxford Moor Blvd. Windermere FL 34786'
+                //     address: `5800 Oxford Moor Blvd.`,    
+                //     latitude:  28.482483,
+                //     longitude: -81.575999,
+                //     key: `Smarties, pretzels`,
+                //     healthy: `No`,
+                //     peanutfree: `Yes`
+                //    }],
                 isOpen: false
             }
         }

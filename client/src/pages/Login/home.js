@@ -162,7 +162,9 @@ render() {
         <Link to='./datapage'>
         <Regbtn />
       </Link>
-      
+      <Link to='./mapview'>
+               <input className="btn-lg btn-warning"  type="submit" value="View The Map" />
+                </Link>
         </Col>
         <Col size="md-3">
         

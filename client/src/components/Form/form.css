@@ -1,6 +1,7 @@
 
 .regbutton {
     margin-top: 5%;
+    margin-right: 20px;
 }
 
 #inputmargin {
@@ -19,3 +20,4 @@
     margin-top: 5px;
     background-color: rgba(247, 190, 84, 0.705);
 }
+

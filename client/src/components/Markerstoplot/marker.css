@@ -1,3 +1,15 @@
 #addhead {
     font-weight: bolder;
 }
+
+.eachlabel {
+    /* font-weight: bold; */
+    font-family: 'Fontdiner Swanky', cursive;
+    font-size: 15px;
+    text-align: center;
+}
+
+#addresshead {
+    color: orange;
+    font-size: 20px;
+}

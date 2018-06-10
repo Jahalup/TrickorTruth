@@ -15,3 +15,9 @@ background-color: rgba(247, 190, 84, 0.705);
     color: black;
     font-family: 'Fontdiner Swanky', cursive;
 }
+.navlinkmap {
+    color: black;
+    font-family: 'Fontdiner Swanky', cursive;
+    font-size: 20px;
+    margin-right: 20px;
+}

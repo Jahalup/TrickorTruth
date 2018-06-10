@@ -17,7 +17,7 @@ class Datapage extends Component {
 
     state = {
         firstname: '',
-        lastname: '',
+        // lastname: '',
         email: '',
         password: '',
         address: '',
@@ -46,7 +46,7 @@ handleInputChange = event => {
 handleFormSubmit = event => {
     event.preventDefault();
     let firstname = this.state.firstname;
-    let lastname = this.state.lastname;
+    // let lastname = this.state.lastname;
     let email = this.state.email;
     let password = this.state.password;
     let address = this.state.address;
@@ -70,7 +70,7 @@ handleFormSubmit = event => {
     // let userdata = { firstname, lastname, email, password, address, city }
    let userdata = {
     firstname: firstname,
-    lastname: lastname,
+    // lastname: lastname,
     email: email,
     password: password,
     // address:address,
@@ -106,24 +106,29 @@ handleFormSubmit = event => {
           <Container  fluid>
            <Navlogin />
            <Row>
+               <Col size="md-12">
+               <h2 id="formheader">Register Your Address</h2>
+               </Col>
+               </Row>
+           <Row>
                <Col size="md-2">
                <ImageS />
                </Col>
             <Col size="md-8">  
             <Card>
                 <form ref="form" onSubmit={this.handlesubmit }>
-                First Name:<Input 
+                Username:<Input 
                  value={this.state.firstname}
                  type="text"
                  onChange={this.handleInputChange}
                  name="firstname" 
                  />
-                Last Name: <Input
+                {/* Last Name: <Input
                 value={this.state.lastname}
                 type="text"
                 onChange={this.handleInputChange}
                 name="lastname" 
-                 />
+                 /> */}
                 Email: <Input 
                 value={this.state.email}
                 type="email"
@@ -214,11 +219,12 @@ handleFormSubmit = event => {
                type="text"
                onChange={this.handleInputChange}
                name="codeword" />
-               <input className="btn btn-warning shadow p-3 mb-5 rounded" type="submit" value="Submit" onClick={this.handleFormSubmit } />
+               <input className="btn-lg btn-warning " type="submit" value="Submit" onClick={this.handleFormSubmit } />
+               
                </form>
-               <Link to='./mappage' params={{firstname: this.state.firstname}}>
+               {/* <Link to='./mappage' params={{firstname: this.state.firstname}}>
         <Regbtn />
-      </Link>
+      </Link> */}
 
 
             </Card>  

@@ -1,15 +1,15 @@
 import React from "react";
-import { Nav } from "../../components/Navbar";
+import { Navbarmap } from "../../components/Navbar";
 import { Card } from "../../components/Card";
-import LotMarker  from "../../components/Markerstoplot";
-import { Regbtn, Filterbtn, Input} from "../../components/Form";
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
+// import LotMarker  from "../../components/Markerstoplot";
+// import { Regbtn, Filterbtn, Input} from "../../components/Form";
+// import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { geocodeByAddress } from 'react-places-autocomplete';
-import { compose, withProps, withStateHandlers } from 'recompose';
+// import { Link } from "react-router-dom";
+// import { geocodeByAddress } from 'react-places-autocomplete';
+// import { compose, withProps, withStateHandlers } from 'recompose';
 import { Container, Col, Row} from "../../components/Grid";
-import { SavedHouse, Userheader } from "../../components/EachArt";
+// import { SavedHouse, Userheader } from "../../components/EachArt";
 import { MyMapComponent } from "../../components/Map";
 import "./mapview.css";
 
@@ -22,27 +22,27 @@ class Mapview extends React.Component {
         this.state = {
             zip: '',
             allusers: [],
-            lots: [
-                {
+            // lots: [
+            //     {
                     // fulladdress: '63 agawam dr wayne NJ 07470'
-                address: `5770 Oxford Moor Blvd.`,
-                latitude: 28.483072,
-                longitude: -81.576246,
-                key: `Snickers`,
-                healthy: `No`,
-                peanutfree: `No`
+                // address: `5770 Oxford Moor Blvd.`,
+                // latitude: 28.483072,
+                // longitude: -81.576246,
+                // key: `Snickers`,
+                // healthy: `No`,
+                // peanutfree: `No`
 
 
-                },
-                {
+                // },
+                // {
                     // fulladdress: '5770 Oxford Moor Blvd. Windermere FL 34786'
-                address: `5800 Oxford Moor Blvd.`,    
-                latitude:  28.482483,
-                longitude: -81.575999,
-                key: `Smarties, pretzels`,
-                healthy: `No`,
-                peanutfree: `Yes`
-               }],
+            //     address: `5800 Oxford Moor Blvd.`,    
+            //     latitude:  28.482483,
+            //     longitude: -81.575999,
+            //     key: `Smarties, pretzels`,
+            //     healthy: `No`,
+            //     peanutfree: `Yes`
+            //    }],
             isOpen: false
         }
     }
@@ -90,7 +90,7 @@ class Mapview extends React.Component {
     render() {
         return (
             <Container fluid>
-            <Nav
+            <Navbarmap
             />
           <Row >
               <Col size="md-3">
@@ -105,12 +105,14 @@ class Mapview extends React.Component {
                <Row>
                 <Col size="md-1" />
                  <Col size="md-10">
-            <MyMapComponent
+                 <Card>
+            <MyMapComponent 
             isMarkerShown={this.state.isMarkerShown}
             // onMarkerClick={this.handleMarkerClick} 
             // markers={this.state.allusers}
             markers={this.state.allusers} 
             /> 
+            </Card>
             </Col>
             <Col size="md-1" />
                 </Row> 
