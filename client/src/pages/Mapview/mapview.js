@@ -11,6 +11,7 @@ import { compose, withProps, withStateHandlers } from 'recompose';
 import { Container, Col, Row} from "../../components/Grid";
 import { SavedHouse, Userheader } from "../../components/EachArt";
 import { MyMapComponent } from "../../components/Map";
+import "./mapview.css";
 
 
 
@@ -93,17 +94,27 @@ class Mapview extends React.Component {
         return (
             <Container fluid>
             <Nav
-           
             />
-          
+          <Row >
+              <Col size="md-3">
+              </Col>
+              <Col size="md-6">
+              
+              <h1 className="titleheadf">The Trick-or-Treat Map</h1>
+            </Col>
+            <Col size="md-3">
+            </Col>
+           </Row>    
                <Row>
-                 <Col size="md-12">
+                <Col size="md-1" />
+                 <Col size="md-10">
             <MyMapComponent
             isMarkerShown={this.state.isMarkerShown}
             // onMarkerClick={this.handleMarkerClick} 
             markers={this.state.lots} 
             /> 
             </Col>
+            <Col size="md-1" />
                 </Row> 
             </Container>
         )

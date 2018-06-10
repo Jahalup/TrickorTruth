@@ -11,6 +11,8 @@ import { compose, withProps, withStateHandlers } from 'recompose';
 import { Container, Col, Row} from "../../components/Grid";
 import { SavedHouse, Userheader } from "../../components/EachArt";
 import { MyMapComponent } from "../../components/Map";
+import "./maps.css";
+
 
 // const MyMapComponent = compose(
 //     withProps({
@@ -157,12 +159,15 @@ import { MyMapComponent } from "../../components/Map";
                 <Nav
                 name={this.state.user}
                 />
-              <h1 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center', marginTop: "10px"}}> Hello, {this.state.user}</h1>
+              <h1 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center', marginTop: "10px"}}> Happy Halloween, {this.state.user}</h1>
                    <Row>
                        <Col size="md-4" >
+                       <div id="pumpkindiv">
+                       <img id="pumpkinimage" src={ require('./pumpkinlone.jpg')} />
+                       </div>
                        </Col>
                   <Col size="md-4">
-                  <h3 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center', marginTop: "10px"}}>Search By Zip</h3>
+                  <h3 id="searchzip">Search By Zip</h3>
                   <form>
                   <Input 
                    
@@ -187,7 +192,7 @@ import { MyMapComponent } from "../../components/Map";
                 <Row>
                     <Col size="md-12">
                   <Card > 
-                      <h3 style={{fontFamily: 'Fontdiner Swanky', textAlign: 'center'}}><img style={{height: "80px", width: "80px"}} src={ require('./hauntedhouse.png') } />Local Houses <img style={{height: "80px", width: "80px"}} src={ require('./hauntedhouse.png') } /></h3>
+                      <h3 id="housestyle">Local Houses </h3>
                   {this.state.all.map((result, i) => (
                       <SavedHouse
                       key={i}
@@ -195,6 +200,7 @@ import { MyMapComponent } from "../../components/Map";
                       healthy={result.healthy}
                       peanutfree={result.peanutfree}
                       treattype={result.treattype}
+                      codeword={result.codeword}
                       />
                   ))}
 
