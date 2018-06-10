@@ -4,9 +4,9 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 // import { Input, FormBtn } from "../../components/Form";
 import { Card, Header } from "../../components/Card";
-import { Form, Regbtn, Input } from "../../components/Form";
+import { Regbtn, Input } from "../../components/Form";
 import { Container, Col, Row} from "../../components/Grid";
-import { Nav } from "../../components/Navbar";
+import {  Navlogin } from "../../components/Navbar";
 import { Image } from "../../components/Image";
 import { Link } from "react-router-dom";
 
@@ -129,7 +129,7 @@ window.location.assign("/mappage?username=" + user);
 render() {
     return (
       <Container  fluid>
-       <Nav />
+       <Navlogin />
        <Row>
            <Col size="md-1" />
            <Col size="md-10">

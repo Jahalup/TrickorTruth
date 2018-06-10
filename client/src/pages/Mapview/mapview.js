@@ -21,7 +21,7 @@ class Mapview extends React.Component {
         super(props);
         this.state = {
             zip: '',
-            all: [],
+            allusers: [],
             lots: [
                 {
                     // fulladdress: '63 agawam dr wayne NJ 07470'
@@ -62,20 +62,17 @@ class Mapview extends React.Component {
     //     )};   
    
 
-    componentDidMount() {
+    componentWillMount() {
         this.loadmarkers();
     }
 
     loadmarkers = () => {
-            API.getMarkers().then(results => {this.setState({all: results.data})})
-           
+            API.getMarkers().
+            then(results => {this.setState({allusers: results.data})}
             // console.log(results)
             // console.log(this.state.all[0])
       
-    };
-
-   
-
+            )};
 
 
     // componentWillMount() {
@@ -111,7 +108,8 @@ class Mapview extends React.Component {
             <MyMapComponent
             isMarkerShown={this.state.isMarkerShown}
             // onMarkerClick={this.handleMarkerClick} 
-            markers={this.state.lots} 
+            // markers={this.state.allusers}
+            markers={this.state.allusers} 
             /> 
             </Col>
             <Col size="md-1" />

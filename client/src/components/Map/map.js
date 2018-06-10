@@ -3,6 +3,16 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "reac
 import { compose, withProps, lifecycle, withStateHandlers } from 'recompose';
 import  LotMarker  from "../Markerstoplot";
 
+// class MyMapComponent extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//            position=[]
+//         }
+    
+// }
+
+
 export const MyMapComponent = compose(
     withProps({
         googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyC_8NVMAxrnk_N7O6emZCRjjrCn-7zkcJk",
@@ -19,7 +29,9 @@ export const MyMapComponent = compose(
     >
 
         {props.markers.map((marker, i) => (
-            <LotMarker key={marker.key} address={marker.address} index={marker.key} healthy={marker.healthy} peanutfree={marker.peanutfree} lat={marker.latitude} lng={marker.longitude} />
+           
+            <LotMarker address={marker.fulladdress} healthy={marker.healthy} peanutfree={marker.peanutfree} />
+            // <LotMarker address={marker.address} index={marker.key} healthy={marker.healthy} peanutfree={marker.peanutfree} lat={marker.latitude} lng={marker.longitude} />
         )
            
         )}

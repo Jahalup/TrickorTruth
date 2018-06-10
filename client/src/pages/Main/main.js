@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import "./main.css";
 import API from "../../utils/API";
 // import { Input, FormBtn } from "../../components/Form";
-import { geocodeByAddress } from 'react-places-autocomplete';
+// import { geocodeByAddress } from 'react-places-autocomplete';
 import { Input, Yesno, City, Statechoice, Zipcode, Regbtn } from "../../components/Form";
 import { Container, Col, Row} from "../../components/Grid";
-import { Nav } from "../../components/Navbar";
+import { Navlogin } from "../../components/Navbar";
 import { Image, ImageS } from "../../components/Image";
 import { Link } from "react-router-dom";
 import { Card } from "../../components/Card";
-
-
 
 
 
@@ -103,16 +101,10 @@ handleFormSubmit = event => {
 
 
 
-
-
-
-
-
-
     render() {
         return (
           <Container  fluid>
-           <Nav />
+           <Navlogin />
            <Row>
                <Col size="md-2">
                <ImageS />
