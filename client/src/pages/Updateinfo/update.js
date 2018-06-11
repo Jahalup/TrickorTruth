@@ -17,7 +17,7 @@ class Updatepage extends Component {
 
     state = {
         firstname: '',
-        lastname: '',
+        // lastname: '',
         email: '',
         password: '',
         address: '',
@@ -46,7 +46,7 @@ handleInputChange = event => {
 handleFormSubmit = event => {
     event.preventDefault();
     let firstname = this.state.firstname;
-    let lastname = this.state.lastname;
+    // let lastname = this.state.lastname;
     let email = this.state.email;
     let password = this.state.password;
     let address = this.state.address;
@@ -67,7 +67,7 @@ handleFormSubmit = event => {
    
    let userdata = {
     firstname: firstname,
-    lastname: lastname,
+    // lastname: lastname,
     email: email,
     password: password,
     // address:address,
@@ -111,7 +111,7 @@ if (url.indexOf("?username=") !== -1) {
   
 API.getuserdata(usernm).then(results => {this.setState({
     firstname: results.data.firstname,
-    lastname: results.data.lastname,
+    // lastname: results.data.lastname,
         email: results.data.email,
         password: results.data.password,
         address: results.data.address,
@@ -142,18 +142,13 @@ else {console.log("nothing")}
             <Col size="md-8">  
             <Card>
                 <form ref="form" onSubmit={this.handlesubmit }>
-                First Name:<Input 
+                Username:<Input 
                  value={this.state.firstname}
                  type="text"
                  onChange={this.handleInputChange}
                  name="firstname" 
                  />
-                Last Name: <Input
-                value={this.state.lastname}
-                type="text"
-                onChange={this.handleInputChange}
-                name="lastname" 
-                 />
+               
                 Email: <Input 
                 value={this.state.email}
                 type="email"
@@ -246,9 +241,7 @@ else {console.log("nothing")}
                name="codeword" />
                <input className="btn btn-warning shadow p-3 mb-5 rounded" type="submit" value="Submit" onClick={this.handleFormSubmit } />
                </form>
-               <Link to='./mappage' params={{firstname: this.state.firstname}}>
-        <Regbtn />
-      </Link>
+              
 
 
             </Card>  

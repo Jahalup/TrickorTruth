@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import "./main.css";
 import API from "../../utils/API";
-// import { Input, FormBtn } from "../../components/Form";
-// import { geocodeByAddress } from 'react-places-autocomplete';
 import { Input, Yesno, City, Statechoice, Zipcode, Regbtn } from "../../components/Form";
 import { Container, Col, Row} from "../../components/Grid";
 import { Navlogin } from "../../components/Navbar";
 import { Image, ImageS } from "../../components/Image";
-import { Link } from "react-router-dom";
 import { Card } from "../../components/Card";
 
 
@@ -60,14 +57,9 @@ handleFormSubmit = event => {
     let codeword = this.state.codeword;
     
     let fulladdress = address + ' ' + city + ' ' + statechoice + ' ' + zipcode
-//    geocodeByAddress(fulladdress).then(results => latitude = results[0].geometry.location.lat()).then(console.log("latitude " + latitude))
+
     console.log("fulladdress: " + fulladdress);
    
-
-    // (results => console.log(results[0].geometry.location.lat() + "and" + results[0].geometry.location.lng() ) )
-
-    // let { topic, startyear, endyear } = this.state;
-    // let userdata = { firstname, lastname, email, password, address, city }
    let userdata = {
     firstname: firstname,
     // lastname: lastname,
@@ -95,11 +87,6 @@ handleFormSubmit = event => {
     })
     .catch(err => console.log(err));    
 }
-
-
-    // this.getnewarts(query)
-
-
 
     render() {
         return (
@@ -141,14 +128,14 @@ handleFormSubmit = event => {
                 onChange={this.handleInputChange}
                 name="password" />
                 
-               Address:  <Input 
-               value={this.state.address}
-               type="text"
-               onChange={this.handleInputChange}
-               name="address" />
+                Address:  <Input 
+                value={this.state.address}
+                type="text"
+                onChange={this.handleInputChange}
+                name="address" />
 
 
-               <div className="form-row">
+            <div className="form-row">
                <City 
                value={this.state.city}
                type="text"
@@ -166,8 +153,8 @@ handleFormSubmit = event => {
                onChange={this.handleInputChange}
                name="zipcode" />
                
-                </div>
-                <div>
+        </div>
+        <div>
                
              
                <Yesno 
@@ -177,82 +164,70 @@ handleFormSubmit = event => {
                onChange={this.handleInputChange}
                name="treats" /> 
               
-               </div>
+        </div>
            
-               
-               <div>
-               
-              
-              
-              
-                <Yesno 
-                label="Will you have a peanut-free option?"
+        <div>
+              <Yesno 
+               label="Will you have a peanut-free option?"
                value={this.state.peanutfree}
                type="text"
                onChange={this.handleInputChange}
                name="peanutfree" />
            
-               </div>
+        </div>
 
-
-
-               <div>
-             <Yesno 
-             label="Will you have a healthy/non-edible option?"
-               value={this.state.healthy}
-               type="text"
-               onChange={this.handleInputChange}
-               name="healthy" />
-               </div>
+        <div>
+              <Yesno 
+              label="Will you have a healthy/non-edible option?"
+              value={this.state.healthy}
+              type="text"
+              onChange={this.handleInputChange}
+              name="healthy" />
+        </div>
 
                
-               <div>
+        <div>
                What will you be giving out (if you know)? <Input
                value={this.state.treattype}
                type="text"
                onChange={this.handleInputChange}
                name="treattype" />
-               </div>
-               <p id="code">Trick-or-treaters who know the code word get an extra treat!</p>
-               <p id="codetitle">If you'd like to add a code word, do so here</p> <Input 
+        </div>
+            <p id="code">Trick-or-treaters who know the code word get an extra treat!</p>
+            <p id="codetitle">If you'd like to add a code word, do so here</p> 
+            <Input 
                value={this.state.codeword}
                type="text"
                onChange={this.handleInputChange}
                name="codeword" />
+
                <input className="btn-lg btn-warning " type="submit" value="Submit" onClick={this.handleFormSubmit } />
                
                </form>
-               {/* <Link to='./mappage' params={{firstname: this.state.firstname}}>
-        <Regbtn />
-      </Link> */}
-
-
+              
             </Card>  
            
          
           
             </Col>
-            <Col size="md-2">
+            <Col size="md-2" />>
            
-            </Col>
             </Row>
             <Row >
     
-                <Col size="md-12">  
+               <Col size="md-12">  
                <Image />
-                </Col> 
+               </Col> 
                
-               
-                </Row>
+            </Row>
            
     
            </Container>
              
             
                 );
-            }
+              }
                 
             }
             
-    
             export default Datapage;

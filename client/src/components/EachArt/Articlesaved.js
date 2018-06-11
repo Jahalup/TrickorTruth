@@ -13,14 +13,14 @@ export const SavedHouse = props => (
   <div className="card-body eachdiv">
     <h6 className="cardttl">{props.fulladdress}</h6>
     <Row>
-      <Col size="md-3">
+    <Col size="md-3">
     <p><span className="innerlab">Healthy treat: </span><span className="innerdata"> {props.healthy}</span></p>
     </Col>
     <Col size="md-3">
     <p>
     <span className="innerlab">Peanut-free treat: </span><span className="innerdata"> {props.peanutfree}</span> </p>
-</Col>
-<Col size="md-3">
+    </Col>
+    <Col size="md-3">
     <p><span className="innerlab">Treat name: </span><span className="innerdata"> {props.treattype}</span></p>
     </Col>
     <Col size="md-3">
