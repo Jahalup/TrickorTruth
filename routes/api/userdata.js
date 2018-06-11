@@ -7,7 +7,7 @@ router.route("/")
   .post(dataController.create);
   
   router.route("/:userfirstname")  
-  .put(dataController.update);
+  .post(dataController.update);
 
 
 router.route("/:usernm")

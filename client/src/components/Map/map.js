@@ -3,14 +3,7 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "reac
 import { compose, withProps, lifecycle, withStateHandlers } from 'recompose';
 import  LotMarker  from "../Markerstoplot";
 
-// class MyMapComponent extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//            position=[]
-//         }
-    
-// }
+
 
 
 export const MyMapComponent = compose(
@@ -31,7 +24,7 @@ export const MyMapComponent = compose(
         {props.markers.map((marker, i) => (
            
             <LotMarker address={marker.fulladdress} healthy={marker.healthy} peanutfree={marker.peanutfree} treattype={marker.treattype} codeword={marker.codeword} />
-            // <LotMarker address={marker.address} index={marker.key} healthy={marker.healthy} peanutfree={marker.peanutfree} lat={marker.latitude} lng={marker.longitude} />
+            
         )
            
         )}

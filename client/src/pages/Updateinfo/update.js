@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./update.css";
 import API from "../../utils/API";
-// import { Input, FormBtn } from "../../components/Form";
-import { geocodeByAddress } from 'react-places-autocomplete';
 import { Input, Yesno, City, Statechoice, Zipcode, Regbtn } from "../../components/Form";
 import { Container, Col, Row} from "../../components/Grid";
 import { Nav } from "../../components/Navbar";
@@ -68,7 +66,7 @@ handleFormSubmit = event => {
 
    
    let userdata = {
-   firstname: firstname,
+    firstname: firstname,
     lastname: lastname,
     email: email,
     password: password,
@@ -91,17 +89,15 @@ handleFormSubmit = event => {
    let userfirstname = firstname;
    console.log(userfirstname);
 
-    API.updateuser(userfirstname, userdata).then(results => console.log(results)
-    // window.location.assign("/mappage?username=" + results.data.firstname)
+    API.updateuser(userfirstname, userdata).then(results => window.location.assign("/mappage?username=" + results.data.firstname))
+    
 
 
-)
+
 .catch(err => console.log(err));    
 }
-loaddata(results) {
-window.location.assign("/mappage?username=" + results.data.firstname)
-}        
-    
+
+
 componentWillMount() {
     this.loaduser();
 }

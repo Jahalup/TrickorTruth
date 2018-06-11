@@ -16,7 +16,7 @@ export default {
     updateuser: function(userfirstname, userdata) {
         console.log(userfirstname);
         console.log(userdata);
-        return axios.put("/api/userentered/" + userfirstname, userdata);
+        return axios.post("/api/userentered/" + userfirstname, userdata);
     },
 
     getzipMarkers: function(zip, treat) {

@@ -12,6 +12,7 @@ import { Container, Col, Row} from "../../components/Grid";
 // import { SavedHouse, Userheader } from "../../components/EachArt";
 import { MyMapComponent } from "../../components/Map";
 import "./mapview.css";
+import { ImageR, ImageS, ImageTop } from "../../components/Image";
 
 
 
@@ -48,9 +49,6 @@ class Mapview extends React.Component {
     }
 
    
-  
-   
-
 
         // {this.setState({all: results.data})}
     // seehealthy = event => {
@@ -100,10 +98,13 @@ class Mapview extends React.Component {
               <h1 className="titleheadf">The Trick-or-Treat Map</h1>
             </Col>
             <Col size="md-3">
+            <ImageTop />
             </Col>
            </Row>    
                <Row>
-                <Col size="md-1" />
+                <Col size="md-1">
+                <ImageS />
+                </Col>
                  <Col size="md-10">
                  <Card>
             <MyMapComponent 
@@ -114,7 +115,9 @@ class Mapview extends React.Component {
             /> 
             </Card>
             </Col>
-            <Col size="md-1" />
+            <Col size="md-1">
+            <ImageR />
+            </Col>
                 </Row> 
             </Container>
         )

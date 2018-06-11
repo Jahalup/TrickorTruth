@@ -11,7 +11,7 @@ module.exports = {
   },
   update: function(req, res) {
     db.Trickortruth
-      .findManyAndUpdate({"firstname": req.params.userfirstname}, req.body)
+      .findOneAndUpdate({firstname: req.params.userfirstname}, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -46,12 +46,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  update: function(req, res) {
-    db.Trickortruth
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+  // update: function(req, res) {
+  //   db.Trickortruth
+  //     .findOneAndUpdate({ _id: req.params.id }, req.body)
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
   remove: function(req, res) {
     db.Trickortruth
       .findById({ _id: req.params.id })
