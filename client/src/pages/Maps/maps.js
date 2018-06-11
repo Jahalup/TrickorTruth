@@ -114,7 +114,7 @@ import "./maps.css";
         //     )};   
        
 
-        componentDidMount() {
+        componentWillMount() {
             this.loadmarkers();
         }
 

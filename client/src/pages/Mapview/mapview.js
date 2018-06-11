@@ -95,7 +95,7 @@ class Mapview extends React.Component {
               </Col>
               <Col size="md-6">
               
-              <h1 className="titleheadf">The Trick-or-Treat Map</h1>
+              <h1 className="titleheadf">The Trick-or-Truth Map</h1>
             </Col>
             <Col size="md-3">
             <ImageTop />
