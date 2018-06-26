@@ -26,6 +26,12 @@ This application allows a user to register their address for trick-or-treating. 
 
 [Heroku Link](https://secret-plateau-83300.herokuapp.com/)
 
+### GIFs
+
+![Gif](https://thumbs.gfycat.com/CarefreeMerryHornet-size_restricted.gif)
+
+[GIF Link](https://gfycat.com/gifs/detail/CarefreeMerryHornet)
+
 
 ### Technology
 
